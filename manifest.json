@@ -1,0 +1,30 @@
+{
+	"manifest_version": 2,
+
+	"name": "Lyrics for Grooveshark",
+	
+	"description": "Extension that shows lyrics for the playing song in Grooveshark",
+	
+	"version": "1.0",
+
+	"browser_action": {
+		"default_icon": "images/icon.png",
+		"default_popup": "html/popup.html"
+	},
+	
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"include_globs": ["*grooveshark.com*"],
+			"css": ["css/contentStyle.css"],
+			"js": ["js/jquery-2.1.0.js", "js/contentScript.js"],
+			"runat": ["document:idle"]
+		}
+	],
+	
+	"permissions": [
+		"tabs", "*://*/*"
+	],
+	
+	"web_accessible_resources": ["images/*", "js/*", "contentScript.js"]
+}
